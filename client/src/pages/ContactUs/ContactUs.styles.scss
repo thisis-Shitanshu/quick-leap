@@ -1,0 +1,22 @@
+$background-primary: #fff;
+$text-color-primary: #2a5298;
+
+.contact-container {
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .contact-context {
+        max-width: 500px;
+        background-color: $background-primary;
+        color: $text-color-primary;
+        padding: 10px;
+        border-radius: 10px;
+
+        & p a {
+            text-decoration: none;
+            color: $text-color-primary;
+        }
+    }
+}
