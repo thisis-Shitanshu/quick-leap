@@ -9,7 +9,7 @@ export const emailSignInStart = (credentials) => async dispatch => {
             type: UserActionTypes.EMAIL_SIGN_IN_START
         });
 
-        const res = await axios.post('/api/login', credentials);
+        const res = await axios.post('/api/admin/login', credentials);
 
         dispatch({
             type: UserActionTypes.SIGN_IN_SUCCESS,
