@@ -11,6 +11,7 @@ const HomePage = lazy(() => import('./pages/Home/Home.component'));
 const AboutUsPage = lazy(() => import('./pages/About-Us/AboutUs.component'));
 const JobSeekersPage = lazy(() => import('./pages/Jobseekers/Jobseekers.component'));
 const ContactUsPage = lazy(() => import('./pages/ContactUs/ContactUs.component'));
+const AdminPage = lazy(() => import('./pages/Admin/Admin.component'));
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Switch>
             <Suspense fallback={<Spinner />}>
               <Route exact path='/' component={HomePage} />
+              <Route path='/admin' component={AdminPage} />
               <Route path='/jobseekers' component={JobSeekersPage} />
               <Route exact path='/about-us' component={AboutUsPage} />
               <Route exact path='/contact-us' component={ContactUsPage} />

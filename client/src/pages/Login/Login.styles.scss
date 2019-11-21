@@ -1,0 +1,36 @@
+$background-primary: #fff;
+$text-color-primary: #2a5298;
+
+form {
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    & .form-content {
+        width: 
+        300px;
+        background-color: $background-primary;
+        color: $text-color-primary;
+        display: flex;
+        flex-direction: column;
+        border-radius: 10px;
+        padding: 10px;
+
+        & label {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+
+            & input {
+                border: 1px solid gray;
+                border-radius: 1px;
+            }
+        }
+
+        & button {
+            width: 100%;
+            border-radius: 5px;
+        }
+    }
+}

@@ -1,9 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
 
+import { signOutStart } from '../../redux/user/user.actions';
 import logo from '../../assets/logo-vector.svg';
 import './Footer.styles.scss';
 
-const Footer = () => {
+const Footer = ({ currentUser, signOutStart }) => {
     return (
         <footer>
             <div className="footer-primary">
@@ -40,9 +42,17 @@ const Footer = () => {
                         </a>
                     </div>
                     <div className='list-item'>
-                        <a href="/admin/login">
-                            Log in
-                        </a>
+                        {
+                            currentUser ? 
+                                <p onClick={signOutStart()}>
+                                    Sign Out
+                                </p>
+                                :
+                                <a href="/admin/login">
+                                    Log in
+                                </a>
+                        }
+                        
                     </div>
                 </div>
 
@@ -85,4 +95,14 @@ const Footer = () => {
     )
 }
 
-export default Footer;
+const mapStateToProps = ({ user }) => {
+    return {
+        currentUser: user.currentUser
+    };
+}
+
+const mapDispatchToProps = dispatch => ({
+    signOutStart: () => dispatch(signOutStart())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Footer);

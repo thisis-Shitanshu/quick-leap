@@ -6,15 +6,22 @@ import reduxThunk from 'redux-thunk';
 
 import './index.scss';
 import App from './App';
-import reducers from './redux/reducers/index';
+import reducers from './redux/index';
+import logger from 'redux-logger';
 
 import axios from 'axios';
 window.axios = axios;
 
+const middlewares = [reduxThunk]
+
+if (process.env.NODE_ENV === 'development') {
+    middlewares.push(logger);
+}
+
 const store = createStore(
     reducers,
     {},
-    applyMiddleware(reduxThunk)
+    applyMiddleware(...middlewares)
 );
 
 ReactDOM.render(

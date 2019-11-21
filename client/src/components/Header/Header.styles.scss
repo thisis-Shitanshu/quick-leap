@@ -11,6 +11,7 @@ nav {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    box-shadow: 0 6px 6px -6px black;
 
     & .nav-brand {
         width: 50px;

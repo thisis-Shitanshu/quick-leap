@@ -15,7 +15,9 @@ const port = process.env.PORT || 5000;
 
 // Adding middleware to express
 app.use(bodyParser.json());
-app.use(cors());
+
+
+require('./routes/authRoutes')(app);
 
 // For Production: Delivering built client for all incoming requests
 if(process.env.NODE_ENV === 'production') {
