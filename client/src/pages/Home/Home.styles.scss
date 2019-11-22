@@ -1,3 +1,49 @@
+$text-color-primary: #2a5298;
+
+.reviews {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & .item {
+        width: 80vw;
+        margin: 10px;
+        background-image: linear-gradient(120deg, #FFFFFF 0%, #FFEFBA 100%);
+        color: $text-color-primary;
+        padding: 20px;
+        border-radius: 10px;
+
+        & .name {
+            font-size: large;
+            margin-bottom: 5px;
+        }
+
+        & .designation {
+            font-style: italic;
+            margin-bottom: 5px;
+        }
+    }
+}
+
+@media (min-width: 576px) {
+    .reviews {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+
+        & .item {
+            height: 40vh;
+            width: 80vw;
+            margin: 20px;
+            background-image: linear-gradient(120deg, #FFFFFF 0%, #FFEFBA 100%);
+            color: $text-color-primary;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    }
+}
+
+
 .jobList {
     display: flex;
     flex-direction: column;
