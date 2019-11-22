@@ -1,7 +1,10 @@
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useEffect } from 'react';
 import { Route, Switch, Redirect, BrowserRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 import './App.scss';
+
+import { authenticateToken } from './redux/user/user.actions';
 
 import Header from './components/Header/Header.component';
 import Footer from './components/Footer/Footer.component';
@@ -13,7 +16,12 @@ const JobSeekersPage = lazy(() => import('./pages/Jobseekers/Jobseekers.componen
 const ContactUsPage = lazy(() => import('./pages/ContactUs/ContactUs.component'));
 const AdminPage = lazy(() => import('./pages/Admin/Admin.component'));
 
-function App() {
+const App = ({ authenticateToken }) => {
+
+  useEffect(() => {
+    authenticateToken();
+  }, []);
+
   return (
     <div className="App">
       <BrowserRouter>
@@ -35,4 +43,8 @@ function App() {
   );
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  authenticateToken: () => dispatch(authenticateToken())
+});
+
+export default connect(null, mapDispatchToProps)(App);

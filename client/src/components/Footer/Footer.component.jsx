@@ -7,8 +7,6 @@ import './Footer.styles.scss';
 
 const Footer = ({ currentUser, signOutStart }) => {
 
-    console.log(currentUser);
-
     const handleSignOut = async event => {
         event.preventDefault();
         

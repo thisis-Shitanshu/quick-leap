@@ -100,4 +100,31 @@ router.post('/login', async (req, res) => {
         }
 });
 
+//get current user from token
+router.post('/me', function(req, res, next) {
+    // check header or url parameters or post parameters for token
+    var token = req.body.token;
+
+    if (!token) {
+        return res.status(401).json({message: 'Must pass token'});
+    }
+    
+    // Check token that was passed by decoding token using secret
+    jwt.verify(token, process.env.TOKEN_SECRET, function(err, user) {
+        if (err) throw err;
+        //return user using the id from w/in JWTToken
+
+        User.findById({
+        '_id': user._id
+        }, function(err, user) {
+            if (err) throw err;
+            
+            res.json({
+                message: 'Success',
+                token
+            });
+        });
+    })
+});
+
 module.exports = router;

@@ -9,6 +9,7 @@ const INITIAL_STATE = {
 const userReducer = (state = INITIAL_STATE, action) => {
     switch (action.type) {
         case UserActionTypes.SIGN_IN_SUCCESS:
+        case UserActionTypes.AUTHENTICATION_TOKEN_SUCCESS:
             return {
                 ...state,
                 currentUser: true,
@@ -26,7 +27,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
 
         case UserActionTypes.SIGN_IN_FAILURE:
         case UserActionTypes.SIGN_OUT_FAILURE:
-        case UserActionTypes.SIGN_UP_FAILURE:
+        case UserActionTypes.AUTHENTICATION_TOKEN_FAILURE:
             return {
                 ...state,
                 error: action.payload,
@@ -35,6 +36,7 @@ const userReducer = (state = INITIAL_STATE, action) => {
         
         case UserActionTypes.EMAIL_SIGN_IN_START:
         case UserActionTypes.SIGN_OUT_START:
+        case UserActionTypes.AUTHENTICATION_TOKEN_START:
             return {
                 ...state,
                 loading: true
