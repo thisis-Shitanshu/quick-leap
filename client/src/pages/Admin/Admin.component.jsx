@@ -9,6 +9,7 @@ const LoginPage = lazy(() => import('../Login/Login.component'));
 const JobsPage = lazy(() => import('../JobsPage/JobsPage.component'));
 
 const Admin = ({ match, currentUser }) => {
+        
     return (
         <div className="admin-page">
             <Suspense fallback={<Spinner />}>

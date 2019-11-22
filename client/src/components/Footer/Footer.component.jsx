@@ -6,6 +6,15 @@ import logo from '../../assets/logo-vector.svg';
 import './Footer.styles.scss';
 
 const Footer = ({ currentUser, signOutStart }) => {
+
+    console.log(currentUser);
+
+    const handleSignOut = async event => {
+        event.preventDefault();
+        
+        signOutStart();
+    };
+
     return (
         <footer>
             <div className="footer-primary">
@@ -44,7 +53,10 @@ const Footer = ({ currentUser, signOutStart }) => {
                     <div className='list-item'>
                         {
                             currentUser ? 
-                                <p onClick={signOutStart()}>
+                                <p 
+                                    onClick={handleSignOut}
+                                    style={{color: '#2a5298'}}
+                                >
                                     Sign Out
                                 </p>
                                 :
@@ -95,9 +107,9 @@ const Footer = ({ currentUser, signOutStart }) => {
     )
 }
 
-const mapStateToProps = ({ user }) => {
+const mapStateToProps = state => {
     return {
-        currentUser: user.currentUser
+        currentUser: state.user.currentUser
     };
 }
 
