@@ -1,0 +1,12 @@
+.jobsPage {
+
+    display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    & .jobList {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }    
+}

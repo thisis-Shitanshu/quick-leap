@@ -24,11 +24,6 @@ const Header = () => {
                         </a>
                     </div>
                     <div className='list-item'>
-                        <a href="/jobseekers">
-                            JOBSEEKERS
-                        </a>
-                    </div>
-                    <div className='list-item'>
                         <a href="/contact-us">
                             CONTACT US
                         </a>

@@ -1,0 +1,46 @@
+$background-primary: #fff;
+$text-color-primary: #2a5298;
+
+.container {
+    color: $text-color-primary;
+    background-color: $background-primary;
+    margin: 5px;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80vw;
+
+    & .row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 5px;
+    }
+
+    & .title {
+        font-size: large;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    & .date {
+        font-weight: bold;
+    }
+        
+    & .company {
+        font-weight: bold;
+    }
+        
+    & .aboutCompany {
+        margin-bottom: 5px;
+        height: auto;
+    }
+        
+    & .role {
+        margin-bottom: 5px;
+        height: auto;
+    }
+
+    & button {
+        padding: 5px 15px;
+        border-radius: 10px;
+    }
+}

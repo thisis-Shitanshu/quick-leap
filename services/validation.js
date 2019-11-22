@@ -44,7 +44,8 @@ const jobValidation = (data) => {
         company: Joi.string().required(),
         location: Joi.string().required(),
         aboutCompany: Joi.string().required(),
-        role: Joi.string().required()
+        role: Joi.string().required(),
+        token: Joi.string()
     });
 
     // Lets Validate

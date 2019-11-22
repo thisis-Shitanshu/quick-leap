@@ -19,7 +19,7 @@ export const fetchJobs = () => async dispatch => {
                 type: JobActionTypes.JOB_FETCH_FAILURE,
                 payload: 'Error Fetching!!!'
             });
-            
+
         } else {
 
             dispatch({
@@ -63,7 +63,7 @@ export const createJob  = data => async dispatch => {
                 type: JobActionTypes.JOB_CREATE_SUCCESS
             });
 
-            fetchJobs();
+            window.location.reload();
         }
         
     } catch (error) {
@@ -101,7 +101,7 @@ export const deleteJob = data => async dispatch => {
                 type: JobActionTypes.JOB_DELETE_SUCCESS
             });
 
-            fetchJobs();
+            window.location.reload();
         }
         
     } catch (error) {
