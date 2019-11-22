@@ -5,7 +5,8 @@ const jwt = require('jsonwebtoken');
 const User = require('../model/User');
 const { 
     registerValidation, 
-    loginValidation 
+    loginValidation,
+    generateToken 
 } = require('../services/validation');
 
 
@@ -86,12 +87,17 @@ router.post('/login', async (req, res) => {
             return res.status(400).send('Invalid credentials');
         }
 
-        // Create and assign token
-        const token = jwt.sign({
-            _id: user._id
-        }, process.env.TOKEN_SECRET);
+        try {
+            // Create and assign token
+            const token = generateToken(user);
 
-        res.header('auth-token', token).send(token);
+            res.status(200).json({
+                message: 'Success',
+                token
+            });
+        } catch (error) {
+            res.status(400).send('Error!');
+        }
 });
 
 module.exports = router;
