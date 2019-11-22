@@ -38,8 +38,23 @@ const loginValidation = (data) => {
     return schema.validate(data); 
 };
 
+const jobValidation = (data) => {
+    const schema = Joi.object({
+        title: Joi.string().required(),
+        company: Joi.string().required(),
+        location: Joi.string().required(),
+        aboutCompany: Joi.string().required(),
+        role: Joi.string().required()
+    });
+
+    // Lets Validate
+    return schema.validate(data); 
+};
+
 module.exports.registerValidation = registerValidation;
 
 module.exports.loginValidation = loginValidation;
 
 module.exports.generateToken = generateToken;
+
+module.exports.jobValidation = jobValidation;
